@@ -10,22 +10,21 @@ class OpportunityRepositoryImpl implements OpportunityRepository {
     required this.remoteDataSource,
   });
 
-  // ================= GET ALL =================
+ 
   @override
   Future<List<Opportunity>> getOpportunities() async {
     final result = await remoteDataSource.getOpportunities();
     return result;
   }
 
-  // ================= GET BY ID =================
+  
   @override
   Future<Opportunity> getOpportunityById(String id) async {
     final result = await remoteDataSource.getOpportunityById(id);
     return result;
   }
 
-  // ================= CREATE =================
-  @override
+  
   Future<Opportunity> createOpportunity(Opportunity opportunity) async {
     final model = OpportunityModel(
       title: opportunity.title,
@@ -42,7 +41,7 @@ class OpportunityRepositoryImpl implements OpportunityRepository {
     return result;
   }
 
-  // ================= UPDATE =================
+  
   @override
   Future<Opportunity> updateOpportunity(Opportunity opportunity) async {
     final model = OpportunityModel(
@@ -61,7 +60,7 @@ class OpportunityRepositoryImpl implements OpportunityRepository {
     return result;
   }
 
-  // ================= DELETE =================
+ 
   @override
   Future<void> deleteOpportunity(String id) async {
     await remoteDataSource.deleteOpportunity(id);

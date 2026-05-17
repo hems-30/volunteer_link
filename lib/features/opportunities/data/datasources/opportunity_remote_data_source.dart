@@ -7,7 +7,7 @@ class OpportunityRemoteDataSource {
 
   OpportunityRemoteDataSource({required this.dioClient});
 
-  // ================= GET ALL =================
+  
   Future<List<OpportunityModel>> getOpportunities() async {
     final response = await dioClient.get(ApiEndpoints.opportunities);
 
@@ -18,7 +18,7 @@ class OpportunityRemoteDataSource {
         .toList();
   }
 
-  // ================= GET BY ID =================
+ 
   Future<OpportunityModel> getOpportunityById(String id) async {
     final response =
         await dioClient.get(ApiEndpoints.opportunityById(id));
@@ -26,7 +26,7 @@ class OpportunityRemoteDataSource {
     return OpportunityModel.fromJson(response.data);
   }
 
-  // ================= CREATE =================
+ 
   Future<OpportunityModel> createOpportunity(
     OpportunityModel opportunity,
   ) async {
@@ -38,7 +38,7 @@ class OpportunityRemoteDataSource {
     return OpportunityModel.fromJson(response.data);
   }
 
-  // ================= UPDATE =================
+ 
   Future<OpportunityModel> updateOpportunity(
     OpportunityModel opportunity,
   ) async {
@@ -50,7 +50,7 @@ class OpportunityRemoteDataSource {
     return OpportunityModel.fromJson(response.data);
   }
 
-  // ================= DELETE =================
+  
   Future<void> deleteOpportunity(String id) async {
     await dioClient.delete(
       ApiEndpoints.opportunityById(id),

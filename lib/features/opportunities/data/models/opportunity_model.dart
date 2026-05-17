@@ -19,7 +19,7 @@ class OpportunityModel extends Opportunity {
           date: date,
         );
 
-  // ================= FROM JSON =================
+
   factory OpportunityModel.fromJson(Map<String, dynamic> json) {
     return OpportunityModel(
       id: json['id'],
@@ -32,7 +32,7 @@ class OpportunityModel extends Opportunity {
     );
   }
 
-  // ================= TO JSON =================
+ 
   Map<String, dynamic> toJson() {
     return {
       'title': title,
@@ -44,7 +44,7 @@ class OpportunityModel extends Opportunity {
     };
   }
 
-  // ================= COPY WITH =================
+  
   OpportunityModel copyWith({
     String? id,
     String? title,
