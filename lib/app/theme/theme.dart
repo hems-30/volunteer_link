@@ -16,7 +16,6 @@ class AppTheme {
 
   static const Color chipBackground = Color(0xFFE8F5E9);
 
-  // ================= THEME =================
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
 
@@ -25,7 +24,7 @@ class AppTheme {
 
     fontFamily: 'Inter',
 
-    // -------- AppBar --------
+
     appBarTheme: const AppBarTheme(
       backgroundColor: primary,
       foregroundColor: Colors.white,
@@ -33,7 +32,7 @@ class AppTheme {
       centerTitle: false,
     ),
 
-    // -------- Text --------
+
     textTheme: const TextTheme(
       titleLarge: TextStyle(
         fontSize: 20,
@@ -52,7 +51,6 @@ class AppTheme {
       ),
     ),
 
-    // -------- Buttons --------
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: primary,
@@ -74,7 +72,7 @@ class AppTheme {
       ),
     ),
 
-    // -------- Inputs --------
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: const Color(0xFFF2F4F3),
@@ -102,7 +100,7 @@ class AppTheme {
       foregroundColor: Colors.white,
     ),
 
-    // -------- Chips --------
+   
     chipTheme: ChipThemeData(
       backgroundColor: chipBackground,
       labelStyle: const TextStyle(
