@@ -10,7 +10,7 @@ class OpportunityBloc extends Bloc<OpportunityEvent, OpportunityState> {
   OpportunityBloc({required this.repository})
       : super(OpportunityInitial()) {
     
-    // ================= LOAD ALL =================
+   
     on<LoadOpportunities>((event, emit) async {
       emit(OpportunityLoading());
       try {
@@ -21,7 +21,7 @@ class OpportunityBloc extends Bloc<OpportunityEvent, OpportunityState> {
       }
     });
 
-    // ================= GET BY ID =================
+   
     on<GetOpportunityById>((event, emit) async {
       emit(OpportunityLoading());
       try {
@@ -33,7 +33,7 @@ class OpportunityBloc extends Bloc<OpportunityEvent, OpportunityState> {
       }
     });
 
-    // ================= CREATE =================
+  
     on<CreateOpportunity>((event, emit) async {
       emit(OpportunityLoading());
       try {
@@ -44,7 +44,7 @@ class OpportunityBloc extends Bloc<OpportunityEvent, OpportunityState> {
       }
     });
 
-    // ================= UPDATE =================
+   
     on<UpdateOpportunity>((event, emit) async {
       emit(OpportunityLoading());
       try {
@@ -55,7 +55,7 @@ class OpportunityBloc extends Bloc<OpportunityEvent, OpportunityState> {
       }
     });
 
-    // ================= DELETE =================
+   
     on<DeleteOpportunity>((event, emit) async {
       emit(OpportunityLoading());
       try {
