@@ -1,4 +1,4 @@
-# VolunteerLink App 📱
+# VolunteerLink App
 
 A Flutter application that performs full **CRUD (Create, Read, Update, Delete)** operations using a public API, built with **Clean Architecture**, **BLoC state management**, and **Dio for networking**.
 
@@ -32,8 +32,6 @@ API calls are handled using:
 - **Dio package**
 - Centralized `DioClient`
 - API endpoints defined in a single file (`api_endpoints.dart`)
-
-Base URL: https://6a098c57e7e3f433d4832f9a.mockapi.io
 ---
 
 ## API Used
