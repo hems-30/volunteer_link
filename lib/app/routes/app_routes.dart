@@ -1,56 +1,50 @@
-import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-// Pages
+import '../../features/opportunities/domain/entities/opportunity.dart';
 import '../../features/opportunities/presentation/pages/splash_page.dart';
 import '../../features/opportunities/presentation/pages/opportunities_list_page.dart';
 import '../../features/opportunities/presentation/pages/opportunity_detail_page.dart';
 import '../../features/opportunities/presentation/pages/add_opportunity_page.dart';
 import '../../features/opportunities/presentation/pages/edit_opportunity_page.dart';
 
-class AppRoutes {
-  // Route names
-  static const String splash = '/';
-  static const String home = '/home';
-  static const String detail = '/detail';
-  static const String add = '/add';
-  static const String edit = '/edit';
+final GoRouter appRouter = GoRouter(
+  initialLocation: '/',
+  routes: [
 
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
+    // Splash
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const SplashPage(),
+    ),
 
-      case splash:
-        return MaterialPageRoute(
-          builder: (_) => const SplashPage(),
-        );
+    // Home
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => const OpportunitiesListPage(),
+    ),
 
-      case home:
-        return MaterialPageRoute(
-          builder: (_) => const OpportunitiesListPage(),
-        );
+    // Detail
+    GoRoute(
+      path: '/detail',
+      builder: (context, state) {
+        final opportunity = state.extra as Opportunity;
+        return OpportunityDetailPage(opportunity: opportunity);
+      },
+    ),
 
-      case detail:
-        final args = settings.arguments;
-        return MaterialPageRoute(
-          builder: (_) => OpportunityDetailPage(opportunity: args),
-        );
+    // Add
+    GoRoute(
+      path: '/add',
+      builder: (context, state) => const AddOpportunityPage(),
+    ),
 
-      case add:
-        return MaterialPageRoute(
-          builder: (_) => const AddOpportunityPage(),
-        );
-
-      case edit:
-        final args = settings.arguments;
-        return MaterialPageRoute(
-          builder: (_) => EditOpportunityPage(opportunity: args),
-        );
-
-      default:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(child: Text('Route not found')),
-          ),
-        );
-    }
-  }
-}
+    // Edit
+    GoRoute(
+      path: '/edit',
+      builder: (context, state) {
+        final opportunity = state.extra as Opportunity;
+        return EditOpportunityPage(opportunity: opportunity);
+      },
+    ),
+  ],
+);

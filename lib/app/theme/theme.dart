@@ -1,41 +1,59 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // ================= COLORS =================
-  static const Color primary = Color(0xFF2E7D32);
-  static const Color primaryLight = Color(0xFF66BB6A);
-  static const Color accent = Color(0xFF43A047);
 
-  static const Color background = Color(0xFFF7F9F8);
+  static const Color primary = Color(0xFF6C63FF);
+  static const Color primaryLight = Color(0xFF8F88FF);
+
+  static const Color background = Color(0xFFF5F6FA);
 
   static const Color textPrimary = Color(0xFF1E1E1E);
   static const Color textSecondary = Color(0xFF6B6B6B);
 
-  static const Color error = Color(0xFFD32F2F);
+  static const Color error = Color(0xFFE53935);
   static const Color warning = Color(0xFFF9A825);
 
-  static const Color chipBackground = Color(0xFFE8F5E9);
+  static const Color chipBackground = Color(0xFFF1F3F5);
+  static const Color surface = Colors.white;
+  static const Color border = Color(0xFFE0E0E0);
+  static const Color shadow = Colors.black12;
+
+  static List<BoxShadow> cardShadow = const [
+    BoxShadow(
+      color: shadow,
+      blurRadius: 10,
+      offset: Offset(0, 4),
+    ),
+  ];
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
 
-    primaryColor: primary,
     scaffoldBackgroundColor: background,
-
     fontFamily: 'Inter',
 
+    colorScheme: const ColorScheme.light(
+      primary: primary,
+      secondary: primaryLight,
+      error: error,
+      surface: surface,
+    ),
 
     appBarTheme: const AppBarTheme(
-      backgroundColor: primary,
-      foregroundColor: Colors.white,
-      elevation: 1,
+      backgroundColor: Colors.white,
+      foregroundColor: textPrimary,
+      elevation: 0,
       centerTitle: false,
     ),
 
-
     textTheme: const TextTheme(
+      headlineMedium: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w700,
+        color: textPrimary,
+      ),
       titleLarge: TextStyle(
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: FontWeight.w600,
         color: textPrimary,
       ),
@@ -47,7 +65,7 @@ class AppTheme {
       bodySmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w500,
-        color: primary,
+        color: textSecondary,
       ),
     ),
 
@@ -72,15 +90,20 @@ class AppTheme {
       ),
     ),
 
-
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: const Color(0xFFF2F4F3),
+      fillColor: surface,
+
       contentPadding: const EdgeInsets.all(14),
 
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide.none,
+        borderSide: const BorderSide(color: border),
+      ),
+
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: border),
       ),
 
       focusedBorder: OutlineInputBorder(
@@ -94,17 +117,15 @@ class AppTheme {
       ),
     ),
 
-    // -------- FAB --------
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: primary,
       foregroundColor: Colors.white,
     ),
 
-   
     chipTheme: ChipThemeData(
       backgroundColor: chipBackground,
       labelStyle: const TextStyle(
-        color: primary,
+        color: textPrimary,
         fontWeight: FontWeight.w500,
       ),
       shape: RoundedRectangleBorder(

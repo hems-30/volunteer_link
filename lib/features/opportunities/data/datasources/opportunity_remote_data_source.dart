@@ -11,7 +11,7 @@ class OpportunityRemoteDataSource {
   Future<List<OpportunityModel>> getOpportunities() async {
     final response = await dioClient.get(ApiEndpoints.opportunities);
 
-    final List data = response.data;
+    final List data = response.data as List;
 
     return data
         .map((json) => OpportunityModel.fromJson(json))
